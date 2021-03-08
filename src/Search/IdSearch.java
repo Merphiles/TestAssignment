@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import dao.EntryDAO;
 import databeans.Entry;
 
+/*
+ * id search only works if GET is called via query string (ex. idsearch?id=1)
+ */
+
 @WebServlet("/idsearch")
 public class IdSearch extends HttpServlet {
     private static final long serialVersionUID = 1L;

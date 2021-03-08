@@ -26,35 +26,12 @@ public class GeoSearch extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-
-		String idStr = request.getParameter("num");
-
-        if (idStr == null) {
-            request.setAttribute("error", "Invalid parameter: idStr == null");
-            RequestDispatcher d = request
-                    .getRequestDispatcher("Error.jsp");
-            d.forward(request, response);
-            return;
-        }
-		
-		int id;
-		
-		try {
-            id = Integer.parseInt(idStr);
-        } catch (NumberFormatException e) {
-            request.setAttribute("error",
-                    "Invalid parameter: idStr is not an int");
-            RequestDispatcher d = request
-                    .getRequestDispatcher("Error.jsp");
-            d.forward(request, response);
-            return;
-        }
-		
-		Entry e = dao.read(id);
-		
 	}
 
-
+	/*
+	 * Input field accepts the ID of an existing cities in databean and returns
+	 * the time zone in ZIP file (zip file contains txt file with time zone)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String numStr = request.getParameter("num");
 		
